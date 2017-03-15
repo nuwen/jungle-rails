@@ -24,7 +24,7 @@
                         <%= link_to category.name, category %>
                     </td>
                     <td>
-                      <%= category.products.count%>
+                        <%= category.products.count%>
                     </td>
                     <td>
                         <%= link_to fa_icon('trash'), [:admin, category], class: 'btn btn-sm btn-danger', method: :delete, data: { confirm: "Are you sure?" } %>
@@ -33,8 +33,7 @@
                 <% end %>
             </tbody>
         </table>
-</ul>
 
-</div>
+    </div>
 
 </section>
