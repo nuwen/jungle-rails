@@ -3,7 +3,7 @@
   <header class="page-header">
     <h1>My Cart</h1>
   </header>
-
+<% if @cart.length > 0 %>
   <div class="panel panel-default items">
     <table class="table table-bordered">
       <thead>
@@ -49,5 +49,15 @@
       <% end %>
     </div>
   </div>
+  <% else %>
+
+  <div class="jumbotron">
+    <h1>Your cart is empty!</h1>
+    <p>Try adding something!</p>
+    <p>
+      <%= button_to "Go Back", :root, class: "btn btn-primary btn-lg" %>
+    </p>
+  </div>
+  <% end %>
 
 </section>

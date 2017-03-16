@@ -8,3 +8,10 @@ class Order < ActiveRecord::Base
   validates :stripe_charge_id, presence: true
 
 end
+
+  def valid?
+   if  order.line_items.length <= 0
+     return false
+   else
+     return true
+   end
