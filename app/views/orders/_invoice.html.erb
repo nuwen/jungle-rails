@@ -1,0 +1,25 @@
+<% @order_total = humanized_money_with_symbol 0.01 * @order.total_cents %>
+<% if product = Product.find_by(id: product_id) %>
+
+  <tr>
+    <td>
+      <%= image_tag product.image.tiny %>
+    </td>
+    <td>
+      <h4><%= product.name %></h4>
+      <br>
+      <p><%= product.description %></p>
+    </td>
+    <td>
+      <%= product.price %>
+    </td>
+    <td>
+
+      <%= quantity %>
+
+    </td>
+    <td>
+      <%= humanized_money_with_symbol quantity * 0.01 * item_price_cents %>
+    </td>
+  </tr>
+<% end %>
