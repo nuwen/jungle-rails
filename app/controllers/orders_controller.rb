@@ -53,6 +53,14 @@ class OrdersController < ApplicationController
       end
     end
     order.save!
+
+    if order.save
+       UserMailer.order_receipt_email(order).deliver
+      #  redirect_to @user, notice: "Order Completed Successfully."
+     else
+       render :new
+     end
+
     order
   end
 
