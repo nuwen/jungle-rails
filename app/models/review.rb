@@ -3,5 +3,5 @@ class Review < ActiveRecord::Base
   belongs_to :user
 
   validates :description, presence: true
-            :rating, presence: true
+  validates :rating, presence: true
 end
