@@ -20,7 +20,46 @@ unless Rails.env.development?
 end
 
 # Let's do this ...
+
+## USERS
+User.create!({
+  email: someguy@mail.com
+})
+
+User.create!({
+  email: someotherguy@mail.com
+})
+
+User.create!({
+  email: richsanchez@mail.com
+})
+
+User.create!({
+  email: mortysanchez@mail.com
+})
+
 ## REVIEWS
+
+Review.create!({
+  product_id: 2,
+  user_id: 2,
+  description: "Its not quite asparagus water, but it has fiber!",
+  rating: 3
+})
+
+Review.create!({
+  product_id: 5,
+  user_id: 2,
+  description: "It makes me itchy",
+  rating: 5
+})
+
+Review.create!({
+  product_id: 2,
+  user_id: 3,
+  description: "What is this even for?",
+  rating: 1
+})
 
 
 ## CATEGORIES
