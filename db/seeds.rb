@@ -23,19 +23,23 @@ end
 
 ## USERS
 User.create!({
-  email: someguy@mail.com
+  email: "someguy@mail.com",
+  password_digest: 1234
 })
 
 User.create!({
-  email: someotherguy@mail.com
+  email: "someotherguy@mail.com",
+  password_digest: 1234
 })
 
 User.create!({
-  email: richsanchez@mail.com
+  email: "richsanchez@mail.com",
+  password_digest: 1234
 })
 
 User.create!({
-  email: mortysanchez@mail.com
+  email: "mortysanchez@mail.com",
+  password_digest: 1234
 })
 
 ## REVIEWS
