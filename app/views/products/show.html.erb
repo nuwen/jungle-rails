@@ -29,7 +29,22 @@
   </article>
 
   <article class="reviews">
+
     <div class="panel panel-default">
+      <h2> Review </h2>
+      <div class="form-group">
+        <%= form_for :review, html: {class: "form-group"} do |f| %>
+        <%= f.text_area :description, class: "form-control"%><br>
+        <%= f.select(:rating) do %>
+        <% [[1], [2], [3], [4], [5]].each do |c| -%>
+        <%= content_tag(:option, c.first, value: c.last) %>
+        <% end %>
+        <% end %>
+
+        <%= f.submit "Submit", class: 'btn btn-primary'%>
+        <% end %>
+      </div>
+
     <%= render @reviews %>
   </div>
   </article>
