@@ -12,6 +12,13 @@ class ReviewsController < ApplicationController
     end
   end
 
+  def destroy
+    @product = Product.find(params[:product_id])
+    @review = @product.reviews.find(params[:id])
+    @review.destroy
+    redirect_to product_path(@product)
+  end
+
   private
   def review_params
 
@@ -21,6 +28,8 @@ class ReviewsController < ApplicationController
     :rating
     )
   end
+
+
 
 
   def require_login

@@ -1,33 +1,37 @@
-<article class="product">
-  <header>
-    <%= link_to product do %>
-      <%= image_tag product.image.thumb, alt: product.name %>
-      <h4><%= product.name %></h4>
-    <% end %>
-  </header>
-  <section>
-  <p class="description">
-    <%= product.description %>
-  </p>
-</section>
-<section>
- <%= product.reviews.average(:rating) %>
-</section>
-  <footer class="actions">
-    <%= link_to add_item_cart_path(product_id: product.id), class: 'btn btn-primary', method: :put do %>
-      <%= fa_icon "shopping-cart", text: 'Add' %>
-    <% end %>
-    <%= link_to product, class: 'btn btn-default pull-right' do %>
-      Details &raquo;
-    <% end %>
-  </footer>
 
-  <aside class="price">
-    <%= humanized_money_with_symbol product.price %>
-  </aside>
-  <% if product.quantity == 0 %>
-  <aside class="soldout">
-    <span>SOLD OUT!</span>
-  </aside>
-  <% end %>
+<article class="product">
+    <header>
+        <%= link_to product do %>
+        <%= image_tag product.image.thumb, alt: product.name %>
+        <h4><%= product.name %></h4>
+        <% end %>
+    </header>
+    <section>
+        <p class="description">
+            <%= product.description %>
+        </p>
+    </section>
+
+    <footer class="actions">
+        <div class="ratings">
+          Average Rating:
+          <%= product.average_rating(product) || "No ratings yet!" %>
+        </div>
+        <br>
+        <%= link_to add_item_cart_path(product_id: product.id), class: 'btn btn-primary', method: :put do %>
+        <%= fa_icon "shopping-cart", text: 'Add' %>
+        <% end %>
+        <%= link_to product, class: 'btn btn-default pull-right' do %>
+        Details &raquo;
+        <% end %>
+    </footer>
+
+    <aside class="price">
+        <%= humanized_money_with_symbol product.price %>
+    </aside>
+    <% if product.quantity == 0 %>
+    <aside class="soldout">
+        <span>SOLD OUT!</span>
+    </aside>
+    <% end %>
 </article>

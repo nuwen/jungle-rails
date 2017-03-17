@@ -7,9 +7,21 @@
       <p class="description">
         <%= review.description %>
       </p>
-    <p class="rating">
-        Rating: <%= review.rating %>
-    </p>
+
+  </div>
+  <div class="panel-footer" style="text-align:right">
+    <span class="rating">
+      Rating: <%= review.rating %>
+
+
+    <% if session[:user_id] === review.user_id %>
+    <%= link_to fa_icon('trash'),
+    [review.product, review],
+    class: 'btn btn-sm btn-danger',
+    method: :delete,
+    data: { confirm: "Are you sure?" } %>
+    <% end %>
+  </span>
   </div>
 </div>
 </article>

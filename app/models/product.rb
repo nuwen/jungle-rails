@@ -11,4 +11,11 @@ class Product < ActiveRecord::Base
   validates :quantity, presence: true
   validates :category, presence: true
 
+  def average_rating(product)
+    average = product.reviews.average(:rating).to_i.round(2)
+    return average != 0 ? average : "No ratings yet"
+  end
+
+
+
 end
