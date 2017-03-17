@@ -29,12 +29,13 @@
   </article>
 
   <article class="reviews">
-
-    <div class="panel panel-default">
+    <% if current_user %>
+    <div class="panel panel-default" style="padding:15px">
       <h2> Review </h2>
       <div class="form-group">
         <%= form_for ([@product, @product.reviews.build]) do |f| %>
           <%= f.text_area :description, class: "form-control"%><br>
+          <span style="float:right">
           <%= f.select(:rating) do %>
             <% [[1], [2], [3], [4], [5]].each do |c| -%>
             <%= content_tag(:option, c.first, value: c.last) %>
@@ -44,6 +45,7 @@
         <%= f.submit "Submit", class: 'btn btn-primary'%>
         <% end %>
       </div>
+      <% end %>
 
     <%= render @product.reviews.reverse %>
   </div>
