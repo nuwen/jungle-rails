@@ -1,3 +1,6 @@
+body{
+  background-color: #eeeeee;
+}
 main section.products-index,
 main section.categories-show {
 
@@ -13,12 +16,13 @@ main section.categories-show {
       // so that footer within can be positioned absolutely
       position:  relative;
 
+      background-color: #FFFFFF;
       border:        1px solid #ccc;
       border-radius: 5px;
       padding:       15px;
       padding-bottom: 80px;
       margin-top:    20px;
-      // margin:        10px;
+      margin:        10px;
 
       header img {
         max-width: 100%;
@@ -78,8 +82,13 @@ main section.categories-show {
 main section.products-show {
 
   .product-detail {
+    padding: 15px;
     img.main-img {
       max-width: 100%;
     }
+  }
+  .panel-heading {
+    font-size: 1em;
+    color: #FFFFFF;
   }
 }

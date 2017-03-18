@@ -1,6 +1,6 @@
 <section class="products-show">
-
-    <header class="page-header">
+  <div class="panel panel-default">
+    <header class="panel-heading">
         <h1><%= link_to @product.category.name, @product.category %>
             &raquo;
             <%= @product.name %></h1>
@@ -22,37 +22,40 @@
                     <dd><%= @product.description %></dd>
                     <dt>Quantity</dt>
                     <dd><%= @product.quantity %></dd>
-                    <dt>Price</dt>
-                    <dd><%= @product.price %></dd>
+                    <dt>Price </dt>
+                    <dd>$<%= @product.price %></dd>
                 </dl>
             </div>
         </div>
 
     </article>
+  </div>
 
     <article class="reviews">
         <div class="panel panel-default" style="padding:15px">
           <% if current_user %>
-            <h2>
+
+
+            <div class="form-group panel panel-success">
+              <div class="panel-heading">
                 Review
-            </h2>
-            <div class="form-group">
+              </div>
+              <div class="panel-body">
                 <%= form_for ([@product, @product.reviews.build]) do |f| %>
                 <%= f.text_area :description, class: "form-control"%><br>
-                <div style="text-align:right">
-                    <%= f.select(:rating) do %>
-                      <% [[1], [2], [3], [4], [5]].each do |c| -%>
-                      <%= content_tag(:option, c.first, value: c.last) %>
-                    <% end %>
-                    <% end %>
-
-                    <%= f.submit "Submit", class: 'btn btn-primary'%>
+              </div>
+              <div style="text-align:right" class="panel-footer">
+                Rating: <%= f.select :rating, options_for_select([1,2,3,4,5]), {}, { :class => '' } %>
+                <%= f.submit "Submit", class: 'btn btn-primary btn-sm'%>
+              </div>
                 <% end %>
-                </div>
-          <% end %>
-
-                <%= render @product.reviews.reverse %>
             </div>
+          <% end %>
+        </article>
+          <article class="reviews">
+            <% if @product.reviews %>
+                <%= render @product.reviews.reverse %>
+                <% end %>
         </article>
 
     </section>

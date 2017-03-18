@@ -23,21 +23,29 @@ end
 
 ## USERS
 User.create!({
+  first_name: "ricky bob"
+  last_name: "hart"
   email: "someguy@mail.com",
   password_digest: 1234
 })
 
 User.create!({
+  first_name: "Sheldon"
+  last_name: "Wheeler"
   email: "someotherguy@mail.com",
   password_digest: 1234
 })
 
 User.create!({
-  email: "richsanchez@mail.com",
+  first_name: "Rick"
+  last_name: "Sanchez"
+  email: "richsanchez3432@mail.com",
   password_digest: 1234
 })
 
 User.create!({
+  first_name: "Morty"
+  last_name: "Smith"
   email: "mortysanchez@mail.com",
   password_digest: 1234
 })
