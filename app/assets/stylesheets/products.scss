@@ -84,9 +84,13 @@ main section.products-show {
       max-width: 100%;
     }
   }
-  .panel-title {
+  .panel-heading.review-heading {
+    color: #FFFFFF;
     font-size: 15px;
+  }
+  .panel-title {
     color: #3e3f3a;
+    font-size: 15px;
   }
   .review-footer{
     text-align: right;
