@@ -73,6 +73,40 @@ Review.create!({
   rating: 1
 })
 
+Review.create!({
+  product_id: 12,
+  user_id: 1,
+  description: "Great for my encyclopedias?",
+  rating: 4
+})
+
+Review.create!({
+  product_id: 11,
+  user_id: 3,
+  description: "DO NOT PLUG IN!!",
+  rating: 1
+})
+
+Review.create!({
+  product_id: 11,
+  user_id: 4,
+  description: "Tastes okay with rice",
+  rating: 3
+})
+
+Review.create!({
+  product_id: 9,
+  user_id: 1,
+  description: "My arms get tired after an hour of wearing this.",
+  rating: 2
+})
+
+Review.create!({
+  product_id: 4,
+  user_id: 3,
+  description: "I had these before they were even sold",
+  rating: 1
+})
 
 ## CATEGORIES
 
