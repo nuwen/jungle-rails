@@ -55,7 +55,7 @@ class OrdersController < ApplicationController
 
     if order.save
        UserMailer.order_receipt_email(order).deliver
-     end
+    end
 
     order
   end

@@ -10,14 +10,16 @@
         <table class="table table-bordered">
           <thead>
             <tr>
-              Ordered By <%= @order.email %>
-              Order Placed <%= @order.created_at %>
+              <h4>
+                Ordered By <strong><%= @order.email %></strong>
+                Order Placed <strong><%= @order.created_at %></strong>
+              </h4>
             </tr>
             <tr>
               <th colspan="2">Product</th>
               <th>Unit Price</th>
               <th>Quantity</th>
-              <th>Price</th>
+              <th>Total</th>
             </tr>
           </thead>
           <tbody>
