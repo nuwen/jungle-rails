@@ -24,6 +24,16 @@
                     <dd><%= @product.quantity %></dd>
                     <dt>Price </dt>
                     <dd>$<%= @product.price %></dd>
+                    <dt> </dt>
+                    <dd>
+                      <% if @product.quantity > 0 %>
+                      <%= link_to add_item_cart_path(product_id: @product.id), class: 'btn btn-primary btn-sm', method: :put do %>
+                      <%= fa_icon "shopping-cart", text: 'Add' %>
+                      <% end %>
+                      <% else %>
+                      <%= button_tag 'Sold Out!', class: 'btn btn-danger btn-sm disabled' %>
+                      <% end %>
+                    </dd>
                 </dl>
             </div>
         </div>
@@ -32,8 +42,8 @@
   </div>
 
     <article class="reviews">
-        <div class="panel panel-default" style="padding:15px">
           <% if current_user %>
+          <div class="panel panel-default review-panel">
 
 
             <div class="form-group panel panel-success">
@@ -44,18 +54,23 @@
                 <%= form_for ([@product, @product.reviews.build]) do |f| %>
                 <%= f.text_area :description, class: "form-control"%><br>
               </div>
-              <div style="text-align:right" class="panel-footer">
+              <div class="panel-footer review-footer">
                 Rating: <%= f.select :rating, options_for_select([1,2,3,4,5]), {}, { :class => '' } %>
                 <%= f.submit "Submit", class: 'btn btn-primary btn-sm'%>
               </div>
                 <% end %>
             </div>
+          <% else %>
+          <div class="well review-well">
+            <p >
+            Login to leave a review!
+            <%= button_to "Login", '/login', class: "btn btn-success btn-sm",method: :get %>
+            </p>
+          </div>
           <% end %>
         </article>
           <article class="reviews">
-            <% if @product.reviews %>
                 <%= render @product.reviews.reverse %>
-                <% end %>
         </article>
 
     </section>

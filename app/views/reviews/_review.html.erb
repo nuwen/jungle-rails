@@ -1,8 +1,10 @@
 <% if review.id != nil %>
 <article class="review">
   <div class="panel panel-default">
-      <div class="panel-heading">
-        <h3 class="panel-title">Panel title</h3>
+      <div class="panel-heading review-heading">
+        <h3 class="panel-title">
+          <%= "#{review.user.first_name} #{review.user.last_name[0]} says:" %>
+        </h3>
       </div>
       <div class="panel-body">
       <p class="description">

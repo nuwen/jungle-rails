@@ -1,6 +1,3 @@
-body{
-  background-color: #eeeeee;
-}
 main section.products-index,
 main section.categories-show {
 
@@ -87,8 +84,21 @@ main section.products-show {
       max-width: 100%;
     }
   }
-  .panel-heading {
-    font-size: 1em;
-    color: #FFFFFF;
+  .panel-title {
+    font-size: 15px;
+    color: #3e3f3a;
+  }
+  .review-footer{
+    text-align: right;
+  }
+
+  .review-panel {
+    padding: 15px;
+  }
+  .review-well {
+    text-align: center;
+  }
+  .rating {
+    font-size: 12px;
   }
 }

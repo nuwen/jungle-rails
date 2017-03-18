@@ -1,5 +1,5 @@
-
 <article class="product">
+  
     <header>
         <%= link_to product do %>
         <%= image_tag product.image.thumb, alt: product.name %>
@@ -18,10 +18,15 @@
           <%= product.average_rating(product) || "No ratings yet!" %>
         </div>
         <br>
-        <%= link_to add_item_cart_path(product_id: product.id), class: 'btn btn-primary', method: :put do %>
+        <% if product.quantity > 0 %>
+        <%= link_to add_item_cart_path(product_id: product.id), class: 'btn btn-primary btn-sm', method: :put do %>
         <%= fa_icon "shopping-cart", text: 'Add' %>
         <% end %>
-        <%= link_to product, class: 'btn btn-default pull-right' do %>
+        <% else %>
+        <%= button_tag 'Sold Out!', class: 'btn btn-danger btn-sm' %>
+
+        <% end %>
+        <%= link_to product, class: 'btn btn-default btn-sm pull-right' do %>
         Details &raquo;
         <% end %>
     </footer>
