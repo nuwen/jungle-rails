@@ -35,7 +35,6 @@ class ReviewsController < ApplicationController
   def require_login
     return true if current_user
     flash.now[:error] = 'You must login first to post a review!'
-    # @product = Product.find(params[:product_id])
     render '/products/show'
   end
 
