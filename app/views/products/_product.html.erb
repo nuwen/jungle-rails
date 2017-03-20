@@ -1,5 +1,5 @@
 <article class="product">
-  
+
     <header>
         <%= link_to product do %>
         <%= image_tag product.image.thumb, alt: product.name %>
@@ -8,7 +8,7 @@
     </header>
     <section>
         <p class="description">
-            <%= product.description %>
+            <%= product.description[0..150].gsub(/\s\w+\s*$/,'...') %>
         </p>
     </section>
 
@@ -19,14 +19,13 @@
         </div>
         <br>
         <% if product.quantity > 0 %>
-        <%= link_to add_item_cart_path(product_id: product.id), class: 'btn btn-primary btn-sm', method: :put do %>
+        <%= link_to add_item_cart_path(product_id: product.id), class: 'btn btn-primary btn-sm show-button', method: :put do %>
         <%= fa_icon "shopping-cart", text: 'Add' %>
         <% end %>
         <% else %>
-        <%= button_tag 'Sold Out!', class: 'btn btn-danger btn-sm' %>
-
+        <%= button_tag 'Sold Out!', class: 'btn btn-danger btn-sm show-button' %>
         <% end %>
-        <%= link_to product, class: 'btn btn-default btn-sm pull-right' do %>
+        <%= link_to product, class: 'btn btn-default btn-sm pull-right show-button' do %>
         Details &raquo;
         <% end %>
     </footer>

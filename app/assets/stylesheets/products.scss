@@ -14,10 +14,11 @@ main section.categories-show {
       position:  relative;
 
       background-color: #FFFFFF;
-      border:        1px solid #ccc;
-      border-radius: 5px;
+      border:        1px solid rgba(#cccccc, 0.25);
+      border-radius: 0px;
       padding:       15px;
       padding-bottom: 80px;
+      padding-top:   30px;
       margin-top:    20px;
       margin:        10px;
 
@@ -34,11 +35,17 @@ main section.categories-show {
         left:   0;
         background-color: #EEE;
         padding: 15px;
-        border-bottom-left-radius: 5px;
-        border-bottom-right-radius: 5px;
+        border-bottom-left-radius: 0px;
+        border-bottom-right-radius: 0px;
         width: 100%;
         opacity: 0.3;
-        transition: all 0.3s;
+        transition: 0.5s;
+        max-height: 50px;
+
+      }
+
+      .show-button{
+        opacity: 0;
       }
 
       aside.price {
@@ -69,6 +76,14 @@ main section.categories-show {
 
         footer {
           opacity: 1.0;
+          overflow-y: hidden;
+	         max-height: 100px; /* approximate max height */
+
+	         transition-property: all;
+        }
+        .show-button {
+          opacity: 1.0;
+          transition-timing-function: cubic-bezier(1, 1, 0.5, 1);
         }
       }
 
